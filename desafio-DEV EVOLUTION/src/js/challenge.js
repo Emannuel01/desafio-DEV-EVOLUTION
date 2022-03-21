@@ -1,10 +1,24 @@
 const next = document.getElementById('next');
-next.addEventListener('click', next_question)
+next.addEventListener('click', next_question);
 
 let dataRankingStart = JSON.parse(localStorage.getItem('usersRankings'));
 if (dataRankingStart == null) {
     localStorage.setItem('usersRankings', JSON.stringify([]));
 }
+
+/**
+ * 
+ * @param {string} tag 
+ * @returns 
+ */
+function createElement(tag) {
+    return document.createElement(tag);
+}
+
+function orderByScore(a, b) {
+    return a[0].score > b[0].score ? -1 : a[0].score < b[0].score ? 1 : 0;
+}
+
 
 function start() {
     document.getElementById('welcome').style.display = 'none';
@@ -61,21 +75,19 @@ function calculateGrade() {
     let fourthNoteQuestion = verifyResponse(document.querySelector('input[name="question-four"]:checked').value);
     let fifthNoteQuestion = verifyResponse(document.querySelector('input[name="question-five"]:checked').value);
 
-    return firstNoteQuestion + secondNoteQuestion + thirdNoteQuestion + fourthNoteQuestion + fifthNoteQuestion;
-}
-/**
- * 
- * @param {string} tag 
- * @returns 
- */
-function createElement(tag) {
-    return document.createElement(tag);
+    let finalGrate = firstNoteQuestion + secondNoteQuestion + thirdNoteQuestion + fourthNoteQuestion + fifthNoteQuestion - Math.trunc(timeResponse);
+
+    if (finalGrate < 0) {
+        return 0;
+    }
+
+    return finalGrate;
 }
 
 function assembleUserObject() {
     let nameUser = document.getElementById('data-user').value;
     let score = calculateGrade();
-    let objUserRanking = [{ name: nameUser, score: score }]
+    let objUserRanking = [{ name: nameUser, score: score, time: timeResponse }]
     saveToRanking(objUserRanking);
     let dataUsers = getToRanking();
     fillRanking();
@@ -84,15 +96,20 @@ function assembleUserObject() {
 function fillRanking() {
     let tableRanking = document.getElementById('tableRanking');
     let dataRanking = getToRanking();
+    dataRanking.sort(orderByScore);
     for (let i = 0; i < dataRanking.length; i++) {
         let tr = createElement('tr');
-        let td = createElement('td');
-        let td2 = createElement('td');
+        let tdName = createElement('td');
+        let tdScore = createElement('td');
+        let tdTime = createElement('td');
 
-        td.textContent = dataRanking[i][0].name;
-        tr.appendChild(td);
-        td2.textContent = dataRanking[i][0].score;
-        tr.appendChild(td2);
+        tdName.textContent = dataRanking[i][0].name;
+        tr.appendChild(tdName);
+        tdScore.textContent = dataRanking[i][0].score;
+        tr.appendChild(tdScore);
+        tdTime.textContent = dataRanking[i][0].time;
+        tr.appendChild(tdTime);
+        tr.class
         tableRanking.appendChild(tr);
     }
 }
@@ -103,7 +120,7 @@ function getToRanking() {
 }
 /**
  * 
- * @param {objeto} data 
+ * @param {{name: string, score: number, time: number}} data 
  */
 function saveToRanking(data) {
     let users = getToRanking();
@@ -118,3 +135,13 @@ function concluded() {
 
     assembleUserObject();
 }
+
+let timeResponse = 0;
+let buttonInit = document.getElementById('start-game');
+buttonInit.addEventListener('click', () => {
+    let t = 0;
+    time = setInterval(() => {
+        t++;
+        timeResponse = t / 100;
+    }, 10);
+});
