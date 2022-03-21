@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewports" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/challenge.css">
+    <link rel="shortcut icon" href="./images/icon.ico" type="image/x-icon">
     <title>Desafio</title>
 </head>
 
@@ -13,12 +14,14 @@
     <div class="container-content">
         <div id="welcome">
             <h2>Bem vindo</h2>
-            <input id="start" type="button" value="Iniciar" onclick="start()">
+            <p class="descriptionGame">Este jogo contém 5 perguntas de multipla escolha</p>
+            <p class="descriptionGame">Para cada segundo passado, será tirado 1 ponto na sua pontuação final</p>
+            <input class="start" type="button" value="Iniciar" onclick="start()">
         </div>
         <div id="user">
             <p id="alert">Preencha o seu nome</p>
             <input type="text" id="data-user" name="user" placeholder="Insira o seu nome" required>
-            <input id="start" type="button" value="Continuar" onclick="startGame()">
+            <input class="start" id="start-game" type="button" value="Continuar" onclick="startGame()">
         </div>
 
         <div class="container-question" id="container-1">
@@ -144,9 +147,10 @@
         <div id="ranking">
             <h3>Ranking</h3>
             <table id="tableRanking">
-                <tr>
-                    <th>Nome</th>
+                <tr id="header-table">
+                    <th class>Nome</th>
                     <th>Pontuação</th>
+                    <th>Tempo em seg</th>
                 </tr>
             </table>
             <input type="button" id="back" value="Reiniciar" onclick="goToBack()">
@@ -155,7 +159,7 @@
         <input id="next" type="button" value="Proxima">
         <input id="finalize" type="button" value="Concluir" onclick="concluded()">
     </div>
-    <script src="./js/challenge.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
