@@ -5,6 +5,15 @@ let dataRankingStart = JSON.parse(localStorage.getItem('usersRankings'));
 if (dataRankingStart == null) {
     localStorage.setItem('usersRankings', JSON.stringify([]));
 }
+let timeResponse = 0;
+let buttonInit = document.getElementById('start-game');
+buttonInit.addEventListener('click', () => {
+    let t = 0;
+    time = setInterval(() => {
+        t++;
+        timeResponse = t / 100;
+    }, 10);
+});
 
 /**
  * 
@@ -14,7 +23,12 @@ if (dataRankingStart == null) {
 function createElement(tag) {
     return document.createElement(tag);
 }
-
+/**
+ * 
+ * @param {number} a 
+ * @param {numer} b 
+ * @returns -1 se o primeiro valor for maior, 1 se o segundo valor for maior
+ */
 function orderByScore(a, b) {
     return a[0].score > b[0].score ? -1 : a[0].score < b[0].score ? 1 : 0;
 }
@@ -66,14 +80,23 @@ function verifyResponse(userResponse) {
 }
 /**
  * 
+ * @param { indice} id
+ * @returns bolean
+ */
+function verifyInputResponse(id) {
+    return document.querySelector(`input[name="question-${id}"]:checked`).value;
+
+}
+/**
+ * 
  * @returns number
  */
 function calculateGrade() {
-    let firstNoteQuestion = verifyResponse(document.querySelector('input[name="question-one"]:checked').value);
-    let secondNoteQuestion = verifyResponse(document.querySelector('input[name="question-two"]:checked').value);
-    let thirdNoteQuestion = verifyResponse(document.querySelector('input[name="question-three"]:checked').value);
-    let fourthNoteQuestion = verifyResponse(document.querySelector('input[name="question-four"]:checked').value);
-    let fifthNoteQuestion = verifyResponse(document.querySelector('input[name="question-five"]:checked').value);
+    let firstNoteQuestion = verifyResponse(verifyInputResponse(1));
+    let secondNoteQuestion = verifyResponse(verifyInputResponse(2));
+    let thirdNoteQuestion = verifyResponse(verifyInputResponse(3));
+    let fourthNoteQuestion = verifyResponse(verifyInputResponse(4));
+    let fifthNoteQuestion = verifyResponse(verifyInputResponse(5));
 
     let finalGrate = firstNoteQuestion + secondNoteQuestion + thirdNoteQuestion + fourthNoteQuestion + fifthNoteQuestion - Math.trunc(timeResponse);
 
@@ -135,13 +158,3 @@ function concluded() {
 
     assembleUserObject();
 }
-
-let timeResponse = 0;
-let buttonInit = document.getElementById('start-game');
-buttonInit.addEventListener('click', () => {
-    let t = 0;
-    time = setInterval(() => {
-        t++;
-        timeResponse = t / 100;
-    }, 10);
-});
