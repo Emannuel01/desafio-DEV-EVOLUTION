@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewports" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/challenge.css">
+    <title>Desafio</title>
+</head>
+
+<body>
+    <div class="container-content">
+        <div id="welcome">
+            <h2>Bem vindo</h2>
+            <input id="start" type="button" value="Iniciar" onclick="start()">
+        </div>
+        <div id="user">
+            <p id="alert">Prencha o seu nome</p>
+            <input type="text" id="data-user" name="user" placeholder="Insira o seu nome" required>
+            <input id="start" type="button" value="Continuar" onclick="startGame()">
+        </div>
+
+        <div class="container-question" id="container-1">
+            <h3 class="ask">1. De quem é a famosa frase “Penso, logo existo”?</h3>
+            <div class="form-check-inline">
+                <input type="radio" name="question-one" class="input-response" value="false">
+                <label>Francis Bacon</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-one" class="input-response" value="false">
+                <label>Platão</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-one" class="input-response" value="false">
+                <label>Galileu Galilei</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-one" class="input-response" value="true">
+                <label>Descartes</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-one" class="input-response" value="false">
+                <label>Sócrates</label>
+            </div>
+        </div>
+
+        <div class="container-question" id="container-2">
+            <h3 class="ask">2. De onde é a invenção do chuveiro elétrico?</h3>
+            <div class="form-check-inline">
+                <input type="radio" name="question-two" class="input-response" value="false">
+                <label>França</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-two" class="input-response" value="false">
+                <label>Inglaterra</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-two" class="input-response" value="true">
+                <label>Brasil</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-two" class="input-response" value="false">
+                <label>Austrália</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-two" class="input-response" value="false">
+                <label>Itália</label>
+            </div>
+        </div>
+
+        <div class="container-question" id="container-3">
+            <h3 class="ask">3. Quais o menor e o maior país do mundo?</h3>
+            <div class="form-check-inline">
+                <input type="radio" name="question-three" class="input-response" value="true">
+                <label>Vaticano e Rússia</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-three" class="input-response" value="false">
+                <label>Nauru e China</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-three" class="input-response" value="false">
+                <label>Malta e Estados Unidos</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-three" class="input-response" value="false">
+                <label>São Marino e Índia</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-three" class="input-response" value="false">
+                <label>Mônaco e Canadá</label>
+            </div>
+        </div>
+
+        <div class="container-question" id="container-4">
+            <h3 class="ask">4. Qual o grupo em que todas as palavras foram escritas corretamente?</h3>
+            <div class="form-check-inline">
+                <input type="radio" name="question-four" class="input-response" value="false">
+                <label>Asterístico, beneficiente, meteorologia, entertido</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-four" class="input-response" value="true">
+                <label>Asterisco, beneficente, meteorologia, entretido</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-four" class="input-response" value="false">
+                <label>Asterisco, beneficente, metereologia, entretido</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-four" class="input-response" value="false">
+                <label>Asterístico, beneficiente, metereologia, entretido</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-four" class="input-response" value="false">
+                <label>Asterisco, beneficiente, metereologia, entretido</label>
+            </div>
+        </div>
+
+        <div class="container-question" id="container-5">
+            <h3 class="ask">5. Quantas casas decimais tem o número pi?</h3>
+            <div class="form-check-inline">
+                <input type="radio" name="question-five" class="input-response" value="false">
+                <label>Duas</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-five" class="input-response" value="false">
+                <label>Centenas</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-five" class="input-response" value="true">
+                <label>Infinitas</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-five" class="input-response" value="false">
+                <label>Vinte</label>
+            </div>
+            <div class="form-check-inline">
+                <input type="radio" name="question-five" class="input-response" value="false">
+                <label>Milhares</label>
+            </div>
+        </div>
+
+        <div id="ranking">
+            <h3>Ranking</h3>
+            <table id="tableRanking">
+                <tr>
+                    <th>Nome</th>
+                    <th>Pontuação</th>
+                </tr>
+            </table>
+            <input type="button" id="back" value="Reiniciar" onclick="goToBack()">
+        </div>
+
+        <input id="next" type="button" value="Proxima">
+        <input id="finalize" type="button" value="Concluir" onclick="concluded()">
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
