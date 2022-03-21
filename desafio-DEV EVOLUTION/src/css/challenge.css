@@ -33,6 +33,12 @@ h2 {
     text-align: center;
 }
 
+.descriptionGame {
+    font-family: 'roboto';
+    margin-bottom: 30px;
+    margin-top: 25px;
+}
+
 input {
     cursor: pointer;
 }
@@ -68,13 +74,17 @@ input {
 
 #next,
 #finalize,
-#start,
+.start,
 #back {
     width: 65px;
     height: 25px;
     background-color: tomato;
     border-radius: 10px;
     font-size: 14px;
+}
+
+#back {
+    margin-top: 4em;
 }
 
 #finalize {
@@ -92,6 +102,10 @@ input {
 th {
     padding: 20px;
     text-align: center;
+}
+
+#header-table {
+    background-color: rgb(12, 82, 75);
 }
 
 td {
