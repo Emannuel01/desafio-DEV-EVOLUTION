@@ -26,7 +26,7 @@ function createElement(tag) {
 /**
  * 
  * @param {number} a 
- * @param {numer} b 
+ * @param {number} b 
  * @returns -1 se o primeiro valor for maior, 1 se o segundo valor for maior
  */
 function orderByScore(a, b) {
